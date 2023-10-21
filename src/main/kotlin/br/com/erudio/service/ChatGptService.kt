@@ -10,6 +10,7 @@ import java.util.logging.Logger
 
 @Service
 class ChatGptService {
+    
     private val logger = Logger.getLogger(ChatGptService::class.java.getName())
 
     @Value("\${openai.model}")
