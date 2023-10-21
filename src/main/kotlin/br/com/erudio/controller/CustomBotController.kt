@@ -13,7 +13,7 @@ class CustomBotController {
 
     @Autowired
     private lateinit var service: ChatGptService
-    
+
     @GetMapping("/chat")
     fun chat(@RequestParam("prompt") prompt: String?): String? {
         return service.chat(prompt)
