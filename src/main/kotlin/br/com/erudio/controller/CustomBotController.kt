@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/bot")
 class CustomBotController {
+
     @Autowired
-    private val service: ChatGptService? = null
+    private lateinit var service: ChatGptService
+    
     @GetMapping("/chat")
     fun chat(@RequestParam("prompt") prompt: String?): String? {
-        return service?.chat(prompt)
+        return service.chat(prompt)
     }
 }
