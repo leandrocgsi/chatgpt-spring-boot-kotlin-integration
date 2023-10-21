@@ -21,9 +21,10 @@ class OpenAIConfig {
         logger.info("Initializing RestTemplate")
 
         val restTemplate = RestTemplate()
-        restTemplate.interceptors.add(ClientHttpRequestInterceptor { request: HttpRequest, body: ByteArray?, execution: ClientHttpRequestExecution ->
-            request.headers.add("Authorization", "Bearer $openaiApiKey")
-            execution.execute(request, body!!)
+        restTemplate.interceptors.add(
+            ClientHttpRequestInterceptor { request: HttpRequest, body: ByteArray?, execution: ClientHttpRequestExecution ->
+                request.headers.add("Authorization", "Bearer $openaiApiKey")
+                execution.execute(request, body!!)
         })
         return restTemplate
     }
