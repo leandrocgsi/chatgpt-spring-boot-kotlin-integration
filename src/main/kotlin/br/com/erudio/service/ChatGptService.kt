@@ -19,13 +19,13 @@ class ChatGptService {
     private val apiURL: String? = null
 
     @Autowired
-    private val template: RestTemplate? = null
+    private lateinit var template: RestTemplate
     fun chat(prompt: String?): String? {
 
         logger.info("Starting Prompt")
 
         val request = ChatGptRequest(model, prompt)
-        val response = template!!.postForObject(apiURL!!, request, ChatGptResponse::class.java)
+        val response = template.postForObject(apiURL!!, request, ChatGptResponse::class.java)
 
         logger.info("Proccessing Response")
 
