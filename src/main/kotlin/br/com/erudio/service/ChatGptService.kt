@@ -21,10 +21,14 @@ class ChatGptService {
     @Autowired
     private val template: RestTemplate? = null
     fun chat(prompt: String?): String? {
+
         logger.info("Starting Prompt")
+
         val request = ChatGptRequest(model, prompt)
         val response = template!!.postForObject(apiURL!!, request, ChatGptResponse::class.java)
+
         logger.info("Proccessing Response")
+
         return response?.getMyChoices()?.get(0)?.message?.content
     }
 }
