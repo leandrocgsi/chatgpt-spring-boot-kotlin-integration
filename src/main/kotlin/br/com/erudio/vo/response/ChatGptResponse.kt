@@ -1,7 +1,6 @@
 package br.com.erudio.vo.response
 
-class ChatGptResponse {
+data class ChatGptResponse (
 
     var choices: List<Choice?>? = null
-
-}
+)
