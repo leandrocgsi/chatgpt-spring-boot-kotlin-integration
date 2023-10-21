@@ -14,6 +14,6 @@ class CustomBotController {
     private val service: ChatGptService? = null
     @GetMapping("/chat")
     fun chat(@RequestParam("prompt") prompt: String?): String? {
-        return service!!.chat(prompt)
+        return service?.chat(prompt)
     }
 }

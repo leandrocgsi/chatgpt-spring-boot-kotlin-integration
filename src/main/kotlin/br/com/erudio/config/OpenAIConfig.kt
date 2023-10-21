@@ -17,7 +17,9 @@ class OpenAIConfig {
     var openaiApiKey: String? = null
     @Bean
     fun template(): RestTemplate {
+
         logger.info("Initializing RestTemplate")
+
         val restTemplate = RestTemplate()
         restTemplate.interceptors.add(ClientHttpRequestInterceptor { request: HttpRequest, body: ByteArray?, execution: ClientHttpRequestExecution ->
             request.headers.add("Authorization", "Bearer $openaiApiKey")
