@@ -1,5 +1,17 @@
 server:
     port: 8090
+logging:
+    level:
+        root: DEBUG
+        httpclient:
+            wire: DEBUG
+        org:
+            apache:
+                http: DEBUG
+            springframework:
+                web:
+                    client:
+                        RestTemplate: DEBUG
 openai:
     model: gpt-3.5-turbo
     api:
