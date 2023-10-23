@@ -24,7 +24,7 @@ class ChatGptService {
 
     @Autowired
     private lateinit var template: RestTemplate
-    
+
     fun chat(prompt: String?): String? {
 
         logger.info("Starting Prompt")

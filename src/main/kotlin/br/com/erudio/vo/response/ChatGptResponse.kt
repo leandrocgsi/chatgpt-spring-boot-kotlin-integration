@@ -5,7 +5,6 @@ data class ChatGptResponse (
     var choices: List<Choice?>? = mutableListOf()
 )
 {
-    fun getMyChoices(): List<Choice?>? {
-        return choices
-    }
+    fun getMyChoices(): List<Choice?>? = choices
+    // Expression body
 }
