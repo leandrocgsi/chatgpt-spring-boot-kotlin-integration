@@ -1,6 +1,7 @@
 package br.com.erudio.service
 
 import br.com.erudio.vo.request.ChatGptRequest
+import br.com.erudio.vo.request.Message
 import br.com.erudio.vo.response.ChatGptResponse
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
@@ -25,7 +26,12 @@ class ChatGptService {
 
         logger.info("Starting Prompt")
 
-        val request = ChatGptRequest(model, prompt)
+        // var messages: List<Message> = ArrayList
+
+        val messages = arrayListOf<List<Message>>()
+        val message = Message("user", prompt!!)
+        messages.add(listOf(message))
+        val request = ChatGptRequest(model!!, messages)
         val response = template.postForObject(apiURL!!, request, ChatGptResponse::class.java)
 
         logger.info("Proccessing Response")
