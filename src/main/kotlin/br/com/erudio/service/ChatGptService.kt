@@ -24,24 +24,13 @@ class ChatGptService {
 
     @Autowired
     private lateinit var template: RestTemplate
+    
     fun chat(prompt: String?): String? {
 
         logger.info("Starting Prompt")
 
-        // var messages: List<Message> = ArrayList
-
         val messages = arrayListOf(Message("user", prompt!!))
-        //val message = Message("user", prompt!!)
-        //messages.add(message)
-
         val request = ChatGptRequest(model!!, messages)
-
-        val objectMapper = ObjectMapper()
-        val jsonString = objectMapper.writeValueAsString(request)
-
-        // Imprimindo no console
-        println("#######################")
-        println(jsonString)
 
         val response = template.postForObject(apiURL!!, request, ChatGptResponse::class.java)
 
@@ -50,3 +39,11 @@ class ChatGptService {
         return response?.getMyChoices()?.get(0)?.message?.content
     }
 }
+
+/**
+val objectMapper = ObjectMapper()
+val jsonString = objectMapper.writeValueAsString(request)
+
+println("#######################")
+logger.info(jsonString)
+ */
