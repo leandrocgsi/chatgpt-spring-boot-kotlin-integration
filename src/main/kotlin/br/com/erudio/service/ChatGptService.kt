@@ -30,9 +30,10 @@ class ChatGptService {
 
         // var messages: List<Message> = ArrayList
 
-        val messages = arrayListOf<List<Message>>()
-        val message = Message("user", prompt!!)
-        messages.add(listOf(message))
+        val messages = arrayListOf(Message("user", prompt!!))
+        //val message = Message("user", prompt!!)
+        //messages.add(message)
+
         val request = ChatGptRequest(model!!, messages)
 
         val objectMapper = ObjectMapper()
