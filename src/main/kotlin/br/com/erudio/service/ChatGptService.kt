@@ -3,12 +3,13 @@ package br.com.erudio.service
 import br.com.erudio.vo.request.ChatGptRequest
 import br.com.erudio.vo.request.Message
 import br.com.erudio.vo.response.ChatGptResponse
-import kotlinx.serialization.json.Json
+import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
 import java.util.logging.Logger
+
 
 @Service
 class ChatGptService {
@@ -34,9 +35,11 @@ class ChatGptService {
         messages.add(listOf(message))
         val request = ChatGptRequest(model!!, messages)
 
-        val jsonString = Json.encodeToString(ChatGptRequest.serializer(), request)
+        val objectMapper = ObjectMapper()
+        val jsonString = objectMapper.writeValueAsString(request)
 
         // Imprimindo no console
+        println("#######################")
         println(jsonString)
 
         val response = template.postForObject(apiURL!!, request, ChatGptResponse::class.java)
