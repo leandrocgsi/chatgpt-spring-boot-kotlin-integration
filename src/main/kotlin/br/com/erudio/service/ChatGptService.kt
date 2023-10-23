@@ -3,6 +3,7 @@ package br.com.erudio.service
 import br.com.erudio.vo.request.ChatGptRequest
 import br.com.erudio.vo.request.Message
 import br.com.erudio.vo.response.ChatGptResponse
+import kotlinx.serialization.json.Json
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
@@ -32,6 +33,12 @@ class ChatGptService {
         val message = Message("user", prompt!!)
         messages.add(listOf(message))
         val request = ChatGptRequest(model!!, messages)
+
+        val jsonString = Json.encodeToString(ChatGptRequest.serializer(), request)
+
+        // Imprimindo no console
+        println(jsonString)
+
         val response = template.postForObject(apiURL!!, request, ChatGptResponse::class.java)
 
         logger.info("Proccessing Response")

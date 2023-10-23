@@ -1,6 +1,7 @@
 package br.com.erudio.vo.request
 
 import com.fasterxml.jackson.annotation.JsonProperty
+import kotlinx.serialization.Serializable
 
 /**
  * Represents the request body for creating a chat completion.
@@ -8,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
  * sampling temperature, top-p value, number of completion choices to generate, stream configuration,
  * stop sequences, maximum number of tokens, presence and frequency penalties, logit bias, and user identifier.
  */
+@Serializable
 data class ChatGptRequest(
     /**
      * ID of the model to use. Currently, only gpt-3.5-turbo and gpt-3.5-turbo-0301 are supported.
