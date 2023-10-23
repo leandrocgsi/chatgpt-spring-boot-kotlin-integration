@@ -25,7 +25,7 @@ data class ChatGptRequest(
      *
      * We generally recommend altering this or top_p but not both.
      */
-    val temperature: Double = 1.0,
+    // val temperature: Double = 1.0,
     /**
      * An alternative to sampling with temperature, called nucleus sampling,
      * where the model considers the results of the tokens with top_p probability mass.
@@ -33,40 +33,40 @@ data class ChatGptRequest(
      *
      * We generally recommend altering this or temperature but not both.
      */
-    @field:JsonProperty("top_p")
-    val topP: Double = 1.0,
+    // @field:JsonProperty("top_p")
+    // val topP: Double = 1.0,
     /**
      * How many chat completion choices to generate for each input message.
      */
-    val n: Int = 1,
+    // val n: Int = 1,
     /**
      * If set, partial message deltas will be sent, like in ChatGPT.
      * Tokens will be sent as data-only server-sent events as they become available,
      * with the stream terminated by a data: DONE message.
      */
-    val stream: Boolean = false,
+    // val stream: Boolean = false,
     /**
      * Up to 4 sequences where the API will stop generating further tokens.
      */
-    val stop: List<String>? = null,
+    // val stop: List<String>? = null,
     /**
      * The maximum number of tokens allowed for the generated answer.
      * By default, the number of tokens the model can return will be (4096 - prompt tokens).
      */
-    @field:JsonProperty("max_tokens")
-    val maxTokens: Int? = null,
+    // @field:JsonProperty("max_tokens")
+    // val maxTokens: Int? = null,
     /**
      * Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far,
      * increasing the model's likelihood to talk about new topics.
      */
-    @field:JsonProperty("presence_penalty")
-    val presencePenalty: Double = 0.0,
+    // @field:JsonProperty("presence_penalty")
+    // val presencePenalty: Double = 0.0,
     /**
      * Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far,
      * decreasing the model's likelihood to repeat the same line verbatim.
      */
-    @field:JsonProperty("frequency_penalty")
-    val frequencyPenalty: Double = 0.0,
+    // @field:JsonProperty("frequency_penalty")
+    // val frequencyPenalty: Double = 0.0,
     /**
      * Modify the likelihood of specified tokens appearing in the completion.
      * Accepts a json object that maps tokens (specified by their token ID in the tokenizer)
@@ -75,10 +75,10 @@ data class ChatGptRequest(
      * The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection;
      * values like -100 or 100 should result in a ban or exclusive selection of the relevant token.
      */
-    @field:JsonProperty("logit_bias")
-    val logitBias: Map<String, Double>? = null,
+    // @field:JsonProperty("logit_bias")
+    // val logitBias: Map<String, Double>? = null,
     /**
      * A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse.
      */
-    val user: String? = null,
+    // val user: String? = null,
 )
