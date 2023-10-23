@@ -1,11 +1,12 @@
 package br.com.erudio.vo.request
 
-class ChatGptRequest(var model: String?, prompt: String?) {
+// data class ChatGptRequest(val prompt: String, val messages: List<Message>)
 
-    private val messages: MutableList<Message>?
+data class ChatGptRequest(val model: String, val prompt: String) {
+    val messages: MutableList<Message> = mutableListOf(Message("user", prompt))
+}
 
-    init {
+/*    init {
         messages = ArrayList()
         messages.add(Message("user", prompt))
-    }
-}
+    }*/
