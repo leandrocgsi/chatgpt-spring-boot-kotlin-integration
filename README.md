@@ -1,1 +1,1 @@
-# chatgpt-spring-boot-kotlin-integration
+# ChatGPT Spring Boot 3.2.0 and Kotlin 1.9.10 Integration
